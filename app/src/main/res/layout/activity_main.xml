@@ -8,8 +8,10 @@
     tools:context=".ui.mainActivity.MainActivity">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +20,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/infoScrollViewBottomInset">
 
             <ImageView
                 android:id="@+id/headerImage"
@@ -29,39 +32,48 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <TextView
+                android:id="@+id/descriptionText"
+                style="@style/RegularText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/contentSpacing"
+                android:layout_marginTop="@dimen/contentSpacing"
+                android:layout_marginEnd="@dimen/contentSpacing"
+                android:textColor="@color/descriptionTextColor"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tagsRecycler" />
+
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/contentCard"
+                android:id="@+id/cornerRadiusCard"
                 style="@style/CustomCardViewStyle"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="10dp"
                 android:layout_marginTop="-10dp"
                 android:paddingTop="10dp"
                 app:cardBackgroundColor="@color/backgroundTint"
                 app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/headerImage">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <ImageView
                 android:id="@+id/gameImage"
                 android:layout_width="88dp"
                 android:layout_height="95dp"
-                android:layout_marginStart="@dimen/gameImageLeftInset"
+                android:layout_marginStart="@dimen/contentSpacing"
                 android:layout_marginTop="@dimen/gameImageTopInset"
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/headerImage"
-                tools:ignore="ContentDescription"
+                tools:ignore="ContentDescription,ImageContrastCheck"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -81,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/gameHeaderTextSpacing"
                 android:layout_marginTop="@dimen/ratingRecyclerTopInset"
+                android:maxWidth="50dp"
                 app:layout_constraintStart_toEndOf="@+id/gameImage"
                 app:layout_constraintTop_toBottomOf="@+id/gameHeader" />
 
@@ -90,11 +103,105 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/ratingTextLeftInset"
+                android:maxWidth="50dp"
                 android:textColor="@color/textSecondaryColor"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/ratingRecycler"
                 app:layout_constraintStart_toEndOf="@+id/ratingRecycler"
                 app:layout_constraintTop_toTopOf="@+id/ratingRecycler" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tagsRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/contentSpacing"
+                android:layout_marginTop="@dimen/contentSpacing"
+                android:layout_marginEnd="@dimen/contentSpacing"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gameImage" />
+
+            <TextView
+                android:id="@+id/reviewAndRatings"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/contentSpacing"
+                android:layout_marginTop="@dimen/contentSpacing"
+                android:text="@string/reviewAndRatings"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+
+            <TextView
+                android:id="@+id/rating"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/contentSpacing"
+                android:layout_marginTop="@dimen/ratingTopInset"
+                android:textSize="48sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reviewAndRatings" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/secondRatingRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/secondRatingsLeftInset"
+                android:layout_marginTop="@dimen/secondRatingTopInset"
+                android:maxWidth="50dp"
+                app:layout_constraintStart_toEndOf="@+id/rating"
+                app:layout_constraintTop_toBottomOf="@+id/reviewAndRatings" />
+
+            <TextView
+                android:id="@+id/secondNumberOfReviews"
+                style="@style/RegularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/secondRatingsLeftInset"
+                android:layout_marginTop="8dp"
+                android:maxWidth="50dp"
+                android:textColor="@color/textSecondRatingColor"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/rating"
+                app:layout_constraintTop_toBottomOf="@+id/secondRatingRecycler" />
+
+            <TextView
+                android:id="@+id/reviews"
+                style="@style/RegularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:maxWidth="50dp"
+                android:text="@string/reviews"
+                android:textColor="@color/textSecondRatingColor"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/secondNumberOfReviews"
+                app:layout_constraintTop_toBottomOf="@+id/secondRatingRecycler" />
+
+            <View
+                android:id="@+id/spacerView"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/reviewsSpacerSideInset"
+                android:layout_marginTop="@dimen/reviewsSpacerTopInset"
+                android:layout_marginEnd="@dimen/reviewsSpacerSideInset"
+                android:background="@color/spacerColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rating" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reviewsRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/contentSpacing"
+                android:layout_marginEnd="@dimen/contentSpacing"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spacerView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -133,6 +240,42 @@
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_baseline_more_horiz"
             tools:ignore="ContentDescription,ImageContrastCheck" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/installButtonCard"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/installButtonHeight"
+        android:layout_marginStart="@dimen/contentSpacing"
+        android:layout_marginEnd="@dimen/contentSpacing"
+        android:layout_marginBottom="@dimen/installButtonBottomInset"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/installButtonBackground"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/installText"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/install"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

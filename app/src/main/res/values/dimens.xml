@@ -5,7 +5,6 @@
     <dimen name="transparentCardSideInset">24dp</dimen>
 
     <dimen name="gameImageTopInset">-22dp</dimen>
-    <dimen name="gameImageLeftInset">24dp</dimen>
 
     <dimen name="gameHeaderTextSpacing">12dp</dimen>
 
@@ -13,4 +12,28 @@
     <dimen name="ratingRecyclerTopInset">7dp</dimen>
 
     <dimen name="ratingTextLeftInset">6dp</dimen>
+
+    <dimen name="contentSpacing">24dp</dimen>
+
+    <dimen name="tagsElementsSpacing">10dp</dimen>
+
+    <dimen name="ratingTopInset">12dp</dimen>
+
+    <dimen name="installButtonBottomInset">36dp</dimen>
+    <dimen name="installButtonHeight">64dp</dimen>
+
+    <dimen name="infoScrollViewBottomInset">110dp</dimen>
+
+    <dimen name="secondRatingTopInset">26dp</dimen>
+
+    <dimen name="secondRatingsLeftInset">16dp</dimen>
+
+    <dimen name="reviewsSpacerSideInset">38dp</dimen>
+    <dimen name="reviewsSpacerTopInset">8dp</dimen>
+
+    <dimen name="reviewInfoLeftInset">16dp</dimen>
+
+    <dimen name="reviewTextTopInset">16dp</dimen>
+
+    <dimen name="reviewTopInset">10dp</dimen>
 </resources>

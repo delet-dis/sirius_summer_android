@@ -16,6 +16,8 @@ import com.sirius.test_app.R
 import com.sirius.test_app.data.DataModel
 import com.sirius.test_app.databinding.ActivityMainBinding
 import com.sirius.test_app.ui.mainActivity.recyclerViewAdapters.RatingRecyclerViewAdapter
+import com.sirius.test_app.ui.mainActivity.recyclerViewAdapters.ReviewsRecyclerViewAdapter
+import com.sirius.test_app.ui.mainActivity.recyclerViewAdapters.TagsRecyclerViewAdapter
 import kotlin.math.roundToInt
 import kotlin.properties.Delegates
 
@@ -76,16 +78,50 @@ class MainActivity : AppCompatActivity() {
         binding.gameHeader.text = dataModel.name
     }
 
-    private fun initNumberOfReviews() {
+    private fun initNumbersOfReviews() {
         binding.numberOfReviews.text = dataModel.gradeCnt
+        binding.secondNumberOfReviews.text = dataModel.gradeCnt
     }
 
-    private fun initRatingRecycler() {
+    private fun initRatingRecyclers() {
         with(binding.ratingRecycler) {
             layoutManager =
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
 
             adapter = RatingRecyclerViewAdapter(dataModel.rating.roundToInt())
+        }
+
+        with(binding.secondRatingRecycler) {
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+
+            adapter = RatingRecyclerViewAdapter(dataModel.rating.roundToInt())
+        }
+    }
+
+    private fun initTagsRecycler() {
+        with(binding.tagsRecycler) {
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+
+            adapter = TagsRecyclerViewAdapter(dataModel.tags)
+        }
+    }
+
+    private fun initDescription() {
+        binding.descriptionText.text = dataModel.description
+    }
+
+    private fun initRating(){
+        binding.rating.text = dataModel.rating.toString()
+    }
+
+    private fun initReviewsRecycler() {
+        with(binding.reviewsRecycler) {
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+
+            adapter = ReviewsRecyclerViewAdapter(dataModel.reviews)
         }
     }
 
@@ -102,9 +138,17 @@ class MainActivity : AppCompatActivity() {
 
         initGameHeader()
 
-        initNumberOfReviews()
+        initNumbersOfReviews()
 
-        initRatingRecycler()
+        initRatingRecyclers()
+
+        initTagsRecycler()
+
+        initDescription()
+
+        initRating()
+
+        initReviewsRecycler()
     }
 
     private companion object {

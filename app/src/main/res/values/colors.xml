@@ -12,4 +12,19 @@
     <color name="buttonsTint">#48FFFFFF</color>
 
     <color name="textSecondaryColor">#45454D</color>
+
+    <color name="tagCardBackground">#3D44A9F4</color>
+    <color name="tagTextColor">#44A9F4</color>
+
+    <color name="installButtonBackground">#F4D144</color>
+
+    <color name="textSecondRatingColor">#A8ADB7</color>
+
+    <color name="spacerColor">#1A1F29</color>
+
+    <color name="reviewDateTextColor">#66FFFFFF</color>
+
+    <color name="descriptionTextColor">#EEF2FB</color>
+
+    <color name="reviewTextColor">#A8ADB7</color>
 </resources>

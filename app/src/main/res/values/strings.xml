@@ -4,4 +4,8 @@
     <string name="backButtonContentDescription">Back</string>
     <string name="optionsButtonContentDescription">Options</string>
     <string name="ratingStar">Rating star</string>
+    <string name="reviewAndRatings"><![CDATA[Review & Ratings]]></string>
+    <string name="install">Install</string>
+    <string name="reviews">Reviews</string>
+    <string name="authorImage">Author image</string>
 </resources>
