@@ -1,4 +1,4 @@
-package com.sirius.test_app
+package com.sirius.test_app.ui.mainActivity
 
 import android.os.Bundle
 import android.view.View
@@ -6,12 +6,17 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.sirius.test_app.R
+import com.sirius.test_app.data.DataModel
 import com.sirius.test_app.databinding.ActivityMainBinding
+import com.sirius.test_app.ui.mainActivity.recyclerViewAdapters.RatingRecyclerViewAdapter
+import kotlin.math.roundToInt
 import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
@@ -71,6 +76,19 @@ class MainActivity : AppCompatActivity() {
         binding.gameHeader.text = dataModel.name
     }
 
+    private fun initNumberOfReviews() {
+        binding.numberOfReviews.text = dataModel.gradeCnt
+    }
+
+    private fun initRatingRecycler() {
+        with(binding.ratingRecycler) {
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+
+            adapter = RatingRecyclerViewAdapter(dataModel.rating.roundToInt())
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -83,6 +101,10 @@ class MainActivity : AppCompatActivity() {
         loadGameImage()
 
         initGameHeader()
+
+        initNumberOfReviews()
+
+        initRatingRecycler()
     }
 
     private companion object {

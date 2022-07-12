@@ -3,4 +3,5 @@
     <string name="gameImage">Game image</string>
     <string name="backButtonContentDescription">Back</string>
     <string name="optionsButtonContentDescription">Options</string>
+    <string name="ratingStar">Rating star</string>
 </resources>

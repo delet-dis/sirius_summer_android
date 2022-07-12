@@ -5,7 +5,99 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundTint"
-    tools:context=".MainActivity">
+    tools:context=".ui.mainActivity.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/headerImage"
+                android:layout_width="0dp"
+                android:layout_height="327dp"
+                android:contentDescription="@string/gameImage"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/contentCard"
+                style="@style/CustomCardViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-10dp"
+                android:paddingTop="10dp"
+                app:cardBackgroundColor="@color/backgroundTint"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerImage">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/gameImage"
+                android:layout_width="88dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="@dimen/gameImageLeftInset"
+                android:layout_marginTop="@dimen/gameImageTopInset"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerImage"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/gameHeader"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gameHeaderTextSpacing"
+                android:layout_marginTop="@dimen/gameHeaderTextSpacing"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/gameImage"
+                app:layout_constraintTop_toBottomOf="@+id/headerImage" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ratingRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gameHeaderTextSpacing"
+                android:layout_marginTop="@dimen/ratingRecyclerTopInset"
+                app:layout_constraintStart_toEndOf="@+id/gameImage"
+                app:layout_constraintTop_toBottomOf="@+id/gameHeader" />
+
+            <TextView
+                android:id="@+id/numberOfReviews"
+                style="@style/RegularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ratingTextLeftInset"
+                android:textColor="@color/textSecondaryColor"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingRecycler"
+                app:layout_constraintStart_toEndOf="@+id/ratingRecycler"
+                app:layout_constraintTop_toTopOf="@+id/ratingRecycler" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/backCard"
@@ -43,52 +135,4 @@
             tools:ignore="ContentDescription,ImageContrastCheck" />
     </androidx.cardview.widget.CardView>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/headerImage"
-                android:layout_width="0dp"
-                android:layout_height="327dp"
-                android:contentDescription="@string/gameImage"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <ImageView
-                android:id="@+id/gameImage"
-                android:layout_width="88dp"
-                android:layout_height="95dp"
-                android:layout_marginStart="@dimen/gameImageLeftInset"
-                android:layout_marginTop="@dimen/gameImageTopInset"
-                android:scaleType="fitCenter"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/headerImage"
-                tools:ignore="ContentDescription"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/gameHeader"
-                style="@style/BoldText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/gameHeaderTextSpacing"
-                android:layout_marginTop="@dimen/gameHeaderTextSpacing"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@+id/gameImage"
-                app:layout_constraintTop_toBottomOf="@+id/headerImage" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
