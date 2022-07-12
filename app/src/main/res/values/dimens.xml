@@ -6,4 +6,6 @@
 
     <dimen name="gameImageTopInset">-22dp</dimen>
     <dimen name="gameImageLeftInset">24dp</dimen>
+
+    <dimen name="gameHeaderTextSpacing">12dp</dimen>
 </resources>

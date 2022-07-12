@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_baseline_more_horiz"
-            tools:ignore="ContentDescription,ImageContrastCheck"/>
+            tools:ignore="ContentDescription,ImageContrastCheck" />
     </androidx.cardview.widget.CardView>
 
     <ScrollView
@@ -78,6 +78,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/headerImage"
                 tools:ignore="ContentDescription"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/gameHeader"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gameHeaderTextSpacing"
+                android:layout_marginTop="@dimen/gameHeaderTextSpacing"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/gameImage"
+                app:layout_constraintTop_toBottomOf="@+id/headerImage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

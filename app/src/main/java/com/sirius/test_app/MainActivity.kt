@@ -67,6 +67,10 @@ class MainActivity : AppCompatActivity() {
             .into(binding.gameImage)
     }
 
+    private fun initGameHeader() {
+        binding.gameHeader.text = dataModel.name
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -77,6 +81,8 @@ class MainActivity : AppCompatActivity() {
         loadHeaderImage()
 
         loadGameImage()
+
+        initGameHeader()
     }
 
     private companion object {
