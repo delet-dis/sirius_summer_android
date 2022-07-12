@@ -4,8 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundTint"
     tools:context=".MainActivity">
 
-    <!-- Место для верстки -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/backCard"
+        style="@style/CardViewTransparentButton"
+        android:layout_marginStart="@dimen/transparentCardSideInset"
+        android:layout_marginTop="@dimen/transparentCardTopInset"
+        android:contentDescription="@string/backButtonContentDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_baseline_arrow_back"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/optionsCard"
+        style="@style/CardViewTransparentButton"
+        android:layout_marginTop="@dimen/transparentCardTopInset"
+        android:layout_marginEnd="@dimen/transparentCardSideInset"
+        android:contentDescription="@string/optionsButtonContentDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/optionsImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_baseline_more_horiz"
+            tools:ignore="ContentDescription,ImageContrastCheck"/>
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/headerImage"
+                android:layout_width="0dp"
+                android:layout_height="327dp"
+                android:contentDescription="@string/gameImage"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/gameImage"
+                android:layout_width="88dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="@dimen/gameImageLeftInset"
+                android:layout_marginTop="@dimen/gameImageTopInset"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerImage"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

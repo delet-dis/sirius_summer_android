@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="transparentCardSize">56dp</dimen>
+    <dimen name="transparentCardTopInset">20dp</dimen>
+    <dimen name="transparentCardSideInset">24dp</dimen>
+
+    <dimen name="gameImageTopInset">-22dp</dimen>
+    <dimen name="gameImageLeftInset">24dp</dimen>
+</resources>
