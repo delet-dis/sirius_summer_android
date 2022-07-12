@@ -1,6 +1,6 @@
 package com.sirius.test_app
 
-class DataModel(
+data class DataModel(
     val image: String = "https://ibb.co/37KzF03",
     val logo: String = "https://ibb.co/GpbZg5t",
     val name: String = "DoTA 2",
